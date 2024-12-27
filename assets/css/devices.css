@@ -1,0 +1,46 @@
+#devicesHistoryPage{
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Màu nền nhẹ nhàng */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS cho bảng */
+table {
+    width: 100%; /* Chiều rộng 100% */
+    border-collapse: collapse; /* Gộp các đường viền */
+    margin-top: 20px; /* Khoảng cách trên bảng */
+    background-color: white; /* Màu nền bảng trắng */
+}
+
+th, td {
+    padding: 12px; /* Khoảng cách bên trong ô */
+    text-align: left; /* Căn trái nội dung */
+    border: 1px solid #ddd; /* Đường viền xung quanh ô */
+    background-color: white; /* Màu nền cho ô trắng */
+}
+
+th {
+    color: #333; /* Màu chữ cho tiêu đề */
+    font-weight: bold; /* Chữ đậm cho tiêu đề */
+}
+
+tr:nth-child(even) {
+    background-color: white; /* Màu nền cho hàng chẵn trắng */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Màu nền khi di chuột qua hàng */
+}
+
+.pagination-container {
+    margin-top: 20px; /* Khoảng cách trên phân trang */
+    text-align: center; /* Căn giữa phân trang */
+}
+
+.pagination-container select {
+    padding: 5px; /* Khoảng cách bên trong dropdown */
+    border: 1px solid #ccc; /* Đường viền cho dropdown */
+    border-radius: 4px; /* Bo tròn góc cho dropdown */
+}

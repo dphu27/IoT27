@@ -1,0 +1,390 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #e0d5d5;
+    cursor: pointer;
+}
+
+.sidebar li.active {
+    background-color: #b42929;
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    height: 550px;
+}
+
+.header {
+    text-align: center; 
+    margin-top: 5px; 
+}
+
+.header h2 {
+    color: red; 
+    font-weight: bold; 
+}
+
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu */
+}
+
+/* Temperature Box */
+.stat-box.temperature.normal {
+    background-color: #e3f2fd; /* Xanh nhạt */
+    color: #1e88e5; /* Xanh dương đậm */
+}
+
+.stat-box.temperature.warning {
+    background-color: #fff3cd; /* Vàng nhạt */
+    color: #856404; /* Vàng đậm */
+}
+
+.stat-box.temperature.danger {
+    background-color: #ffcccb; /* Đỏ nhạt */
+    color: #b71c1c; /* Đỏ đậm */
+}
+
+/* Humidity Box */
+.stat-box.humidity.normal {
+    background-color: #e8f5e9; /* Xanh lá nhạt */
+    color: #388e3c; /* Xanh lá đậm */
+}
+
+.stat-box.humidity.warning {
+    background-color: #fff3cd; /* Vàng nhạt */
+    color: #856404; /* Vàng đậm */
+}
+
+.stat-box.humidity.danger {
+    background-color: #ffcccb; /* Đỏ nhạt */
+    color: #b71c1c; /* Đỏ đậm */
+}
+
+/* Light Box */
+.stat-box.light.normal {
+    background-color: #fff8e1; /* Cam nhạt */
+    color: #ff8f00; /* Cam đậm */
+}
+
+.stat-box.light.warning {
+    background-color: #ffe082; /* Vàng cam nhạt */
+    color: #ffa000; /* Cam vàng đậm */
+}
+
+.stat-box.light.danger {
+    background-color: #ffcccb; /* Đỏ nhạt */
+    color: #b71c1c; /* Đỏ đậm */
+}
+
+
+
+.stat-icon {
+    font-size: 30px; /* Đảm bảo rằng tất cả các icon có cùng kích thước */
+    margin-bottom: 10px; /* Khoảng cách giữa icon và nội dung bên dưới */
+    text-align: center; /* Căn giữa icon */
+    width: 100%; /* Đảm bảo icon chiếm toàn bộ chiều rộng của hộp để căn giữa */
+}
+
+.stat-content {
+    text-align: center; /* Căn giữa nội dung bên dưới icon */
+}
+
+
+.stat-content h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.stat-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #777;
+}
+
+.control-box p {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: #333;
+}
+
+.control-box i {
+    margin-right: 8px; /* Khoảng cách giữa icon và text */
+    font-size: 18px;
+    color: #333;
+}
+.fan-icon, .ac-icon, .light-icon {
+    width: 50px; /* Điều chỉnh kích thước ảnh nếu cần */
+    height: 50px;
+    transition: opacity 0.3s ease; /* Hiệu ứng chuyển tiếp */
+}
+
+
+.chart {
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-box {
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+}
+
+
+/* chuyển trang */
+
+.sidebar ul li.active {
+    color: red;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Điều chỉnh lại container của biểu đồ và các nút điều khiển */
+.chart-container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 20px;
+    height: 400px;
+}
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 25%;
+    margin-left: 10px;
+    margin-right: 25px;
+    padding: 25px;
+}
+.control-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+/* .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+} */
+/* nut bat tat */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+}
+
+
+/* bgr */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/assets/images/bgr1.jpg'); /* Đường dẫn tới hình ảnh */
+    background-size: cover; /* Để hình nền bao phủ toàn bộ màn hình */
+    background-position: center; /* Căn giữa hình nền */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+    background-attachment: fixed; /* Hình nền cố định khi cuộn trang */
+    color: #000000; /* Màu chữ trắng để nổi bật trên nền tối */
+}
+
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.7); /* Sidebar có nền đen trong suốt */
+    color: #ffffff;
+}
+
+.main-content {
+    background-color: rgba(255, 255, 255, 0.8); /* Nội dung chính có nền trắng trong suốt */
+    padding: 20px;
+    border-radius: 10px; /* Bo góc cho giao diện mềm mại hơn */
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7); /* Nền đen trong suốt cho phần header */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.page {
+    padding: 5px;
+}
+
+/* Profile Page */
+.profile-container {
+    display: flex;
+    justify-content: center;    /* Căn giữa theo chiều ngang */
+    align-items: center;        /* Căn giữa theo chiều dọc */
+    height: 100vh;              /* Chiều cao của container là 100% viewport height */
+}
+
+.profile-box {
+    background-color: #ffffff;  /* Màu nền hộp */
+    padding: 30px;              /* Khoảng cách bên trong hộp */
+    border-radius: 15px;        /* Bo tròn góc */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    text-align: center;         /* Căn giữa văn bản */
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;        /* Khoảng cách giữa hình ảnh và thông tin */
+}
+
+.profile-details {
+    color: #333333;             /* Màu chữ đậm hơn */
+}
+
+.profile-details h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;             /* Màu chữ đen đậm cho tên */
+}
+
+.profile-details p {
+    margin: 5px 0;
+    font-size: 18px;
+    color: #444444;             /* Màu chữ đậm hơn cho các chi tiết */
+}
+
+.profile-details a {
+    color: #007bff;             /* Màu xanh đậm cho liên kết */
+    text-decoration: none;
+}
+
+.profile-details a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+.active-page {
+    background-color: red !important;
+    color: white !important;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+
+/* db2 */
+.stats {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    gap: 20px; /* Khoảng cách giữa các hộp */
+    margin-bottom: 20px; /* Khoảng cách dưới cùng */
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 150px; /* Đặt chiều rộng của hộp */
+    height: 100px; /* Đặt chiều cao của hộp */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu sắc */
+}
